@@ -6,7 +6,7 @@ const transporter = nodemailer.createTransport(emailService);
 async function sendEmail(to, subject, text) {
   try {
     await transporter.sendMail({
-      from: "no-reply@yourdomain.com",
+      from: "rozzeymarvin32@gmail.com",
       to,
       subject,
       text,

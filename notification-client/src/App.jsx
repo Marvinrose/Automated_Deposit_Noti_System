@@ -1,11 +1,11 @@
 import "./App.css";
-import NotificationForm from "./components/NotificationForm";
+import UserDashboard from "./components/userDashboard";
 
 function App() {
   return (
     <>
       <div>
-        <NotificationForm />
+        <UserDashboard />
       </div>
     </>
   );
