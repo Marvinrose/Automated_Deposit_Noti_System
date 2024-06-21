@@ -1,5 +1,5 @@
 const axios = require("axios");
-const { userServiceUrl } = require("../../config/config");
+const { userServiceUrl } = require("../config/config");
 
 async function fetchUserInfo(userId) {
   try {

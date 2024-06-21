@@ -1,5 +1,5 @@
 const axios = require("axios");
-const { walletServiceUrl } = require("../../config/config");
+const { walletServiceUrl } = require("../config/config");
 
 async function checkWalletBalance(userId) {
   try {
