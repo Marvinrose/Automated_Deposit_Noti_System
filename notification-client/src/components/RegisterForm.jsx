@@ -1,18 +1,9 @@
 import { Link, Stack, TextField, Typography } from "@mui/material";
 
-const Register = () => {
+const RegisterForm = () => {
   return (
     <>
-      <Stack spacing={2} sx={{ mb: 5, position: "relative" }}>
-        <Typography variant="h4">Get Started With Tawk</Typography>
-        <Stack direction={"row"} spacing={0.5}>
-          <Typography variant="body2"> Already have an account?</Typography>
-          <Link to="/auth/login" variant="subtitle2">
-            Sign In
-          </Link>
-        </Stack>
-        {/* Register form */}
-        {/* <RegisterForm /> */}
+      <Stack>
         <TextField id="outlined-basic" label="Email" variant="outlined" />
         <Typography
           component={"div"}
@@ -40,4 +31,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default RegisterForm;

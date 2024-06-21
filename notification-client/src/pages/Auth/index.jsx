@@ -1,7 +1,8 @@
 import { Container, Stack } from "@mui/material";
-import Register from "../../components/Register";
 
-const DashboardLayout = () => {
+import { Outlet } from "react-router-dom";
+
+const AuthLayout = () => {
   return (
     <>
       <Container sx={{ mt: 5 }} maxWidth="sm">
@@ -14,11 +15,10 @@ const DashboardLayout = () => {
             />
           </Stack>
         </Stack>
-
-        <Register />
+        <Outlet />
       </Container>
     </>
   );
 };
 
-export default DashboardLayout;
+export default AuthLayout;
