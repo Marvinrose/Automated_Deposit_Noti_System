@@ -1,5 +1,5 @@
 import { useState } from "react";
-// import { sendFailedDepositNotification } from "../api";
+import { sendFailedDepositNotification } from "../api";
 
 const NotificationForm = () => {
   const [userId, setUserId] = useState("");
@@ -14,18 +14,18 @@ const NotificationForm = () => {
     setLoading(true);
     setMessage("");
     setError("");
-    // try {
-    //   const response = await sendFailedDepositNotification(
-    //     userId,
-    //     amount,
-    //     notificationType
-    //   );
-    //   setMessage(response);
-    // } catch (err) {
-    //   setError(err.message);
-    // } finally {
-    //   setLoading(false);
-    // }
+    try {
+      const response = await sendFailedDepositNotification(
+        userId,
+        amount,
+        notificationType
+      );
+      setMessage(response);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
