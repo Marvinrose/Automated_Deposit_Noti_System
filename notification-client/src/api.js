@@ -1,11 +1,5 @@
-import React from 'react'
-
 const api = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+  return <div></div>;
+};
 
-export default api
+export default api;
