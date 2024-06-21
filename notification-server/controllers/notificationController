@@ -1,0 +1,25 @@
+const userService = require('../services/userService');
+const walletService = require('../services/walletService');
+const notificationService = require('../services/notificationService');
+
+async function handleFailedDeposit(req, res) {
+  const { userId, amount, notificationType } = req.body;
+
+  try {
+    const user = await userService.fetchUserInfo(userId);
+    const balance = await walletService.checkWalletBalance(userId);
+
+    if (balance < amount) {
+      await notificationService.sendNotification(user, amount, notificationType);
+      res.status(200).send('Notification sent successfully');
+    } else {
+      res.status(400).send('Sufficient funds available, no notification sent');
+    }
+  } catch (error) {
+    res.status(500).send(`Error: ${error.message}`);
+  }
+}
+
+module.exports = {
+  handleFailedDeposit,
+};
