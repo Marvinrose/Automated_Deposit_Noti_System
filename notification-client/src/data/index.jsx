@@ -1,3 +1,5 @@
+import { ChatCircleDots, Phone, Users } from "phosphor-react";
+
 const Nav_Buttons = [
   {
     index: 0,

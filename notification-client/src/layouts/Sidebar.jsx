@@ -1,6 +1,10 @@
-import { Box, Divider, IconButton, Stack } from "@mui/material";
+import { Avatar, Box, Divider, IconButton, Stack } from "@mui/material";
+import Nav_Buttons from "../data";
+import { Gear } from "phosphor-react";
+import { useState } from "react";
 
 const Sidebar = () => {
+  const [selected, setSelected] = useState(0);
   return (
     <Box
       p={2}
@@ -20,7 +24,7 @@ const Sidebar = () => {
         <Stack alignItems="center" spacing={4}>
           <Box
             sx={{
-              backgroundColor: '#000',
+              backgroundColor: "#000",
               height: 64,
               width: 64,
               borderRadius: 1.5,
@@ -37,9 +41,10 @@ const Sidebar = () => {
             {Nav_Buttons.map((el) =>
               el.index === selected ? (
                 <Box
+                  key={el.index}
                   p={1}
                   sx={{
-                    // backgroundColor: theme.palette.primary.main,
+                    backgroundColor: "#000",
                     borderRadius: 1.5,
                   }}
                 >
@@ -53,17 +58,14 @@ const Sidebar = () => {
                 </Box>
               ) : (
                 <IconButton
-                  // onClick={() => {
-                  //   setSelected(el.index);
-                  //   navigate(getPath(el.index));
-                  // }}
-                  // key={el.index}
+                  onClick={() => {
+                    setSelected(el.index);
+                    // navigate(getPath(el.index));
+                  }}
+                  key={el.index}
                   sx={{
                     width: "max-content",
-                    color:
-                      theme.palette.primary.mode === "light"
-                        ? "#000"
-                        : theme.palette.text.primary,
+                    color: "#000",
                   }}
                 >
                   {el.icon}
@@ -90,10 +92,10 @@ const Sidebar = () => {
                 //   navigate(getPath(3));
                 // }}
                 sx={{
-                  color: '#000'
-                    // theme.palette.primary.mode === "light"
-                    //   ? "#000"
-                    //   : theme.palette.text.primary,
+                  color: "#000",
+                  // theme.palette.primary.mode === "light"
+                  //   ? "#000"
+                  //   : theme.palette.text.primary,
                 }}
               >
                 <Gear></Gear>
