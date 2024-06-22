@@ -2,9 +2,28 @@ import { Avatar, Box, Divider, IconButton, Stack } from "@mui/material";
 import Nav_Buttons from "../data";
 import { Gear } from "phosphor-react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
   const [selected, setSelected] = useState(0);
+  const navigate = useNavigate();
+
+  const getPath = (index) => {
+    switch (index) {
+      case 0:
+        return "/dashboard/userManagement";
+      case 1:
+        return "/dashboard/wallet";
+      case 2:
+        return "/dashboard/notification";
+      case 3:
+        return "/dashboard/signOut";
+
+      default:
+        break;
+    }
+  };
+
   return (
     <Box
       p={2}
@@ -60,7 +79,7 @@ const Sidebar = () => {
                 <IconButton
                   onClick={() => {
                     setSelected(el.index);
-                    // navigate(getPath(el.index));
+                    navigate(getPath(el.index));
                   }}
                   key={el.index}
                   sx={{
@@ -73,7 +92,7 @@ const Sidebar = () => {
               )
             )}
             <Divider sx={{ width: "48px" }} />
-            {selected === 3 ? (
+            {selected === 4 ? (
               <Box
                 p={1}
                 sx={{
@@ -87,10 +106,10 @@ const Sidebar = () => {
               </Box>
             ) : (
               <IconButton
-                // onClick={() => {
-                //   setSelected(3);
-                //   navigate(getPath(3));
-                // }}
+                onClick={() => {
+                  setSelected(3);
+                  navigate(getPath(3));
+                }}
                 sx={{
                   color: "#000",
                   // theme.palette.primary.mode === "light"

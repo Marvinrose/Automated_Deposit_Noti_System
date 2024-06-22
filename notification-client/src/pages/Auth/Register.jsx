@@ -1,5 +1,6 @@
 import { Link, Stack, Typography } from "@mui/material";
 import RegisterForm from "../../components/RegisterForm";
+import AuthSocial from "../../components/AuthSocial";
 
 const Register = () => {
   return (
@@ -14,6 +15,7 @@ const Register = () => {
         </Stack>
         {/* Register form */}
         <RegisterForm />
+        <AuthSocial />
       </Stack>
     </>
   );
