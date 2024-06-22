@@ -9,6 +9,12 @@ app.use(cors());
 
 app.use(bodyParser.json());
 
+const userRoutes = require("./routes/users");
+const walletRoutes = require("./routes/wallets");
+
+app.use("/api", userRoutes);
+app.use("/api/wallets", walletRoutes);
+
 // Connect to MongoDB
 mongoose.connect(process.env.DATABASE_URL, {
   useNewUrlParser: true,

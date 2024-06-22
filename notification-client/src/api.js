@@ -32,9 +32,7 @@ export const getUserInfo = async (userId) => {
 
 export const getWalletInfo = async (userId) => {
   try {
-    const response = await axios.get(
-      `${API_URL}/wallet-service/wallets/${userId}`
-    );
+    const response = await axios.get(`${API_URL}/api/wallets/${userId}`);
     return response.data;
   } catch (error) {
     throw new Error(

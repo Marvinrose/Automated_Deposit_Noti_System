@@ -21,7 +21,17 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import { Eye } from "phosphor-react";
+import { Eye, X } from "phosphor-react";
+import { styled } from "@mui/material/styles";
+
+const BootstrapDialog = styled(Dialog)(({ theme }) => ({
+  "& .MuiDialogContent-root": {
+    padding: theme.spacing(2),
+  },
+  "& .MuiDialogActions-root": {
+    padding: theme.spacing(1),
+  },
+}));
 
 const UserManagement = () => {
   const [users, setUsers] = useState([]);
@@ -31,22 +41,22 @@ const UserManagement = () => {
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
 
-  //   useEffect(() => {
-  //     const fetchUsers = async () => {
-  //       setLoading(true);
-  //       try {
-  //         const response = await axios.get("/api/users");
-  //         setUsers(response.data);
-  //         setFilteredUsers(response.data);
-  //       } catch (error) {
-  //         console.error("Error fetching users:", error);
-  //       } finally {
-  //         setLoading(false);
-  //       }
-  //     };
+  useEffect(() => {
+    const fetchUsers = async () => {
+      setLoading(true);
+      try {
+        const response = await axios.get("http://localhost:3000/api/users");
+        setUsers(response.data);
+        setFilteredUsers(response.data);
+      } catch (error) {
+        console.error("Error fetching users:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  //     fetchUsers();
-  //   }, []);
+    fetchUsers();
+  }, []);
 
   const handleSearch = (e) => {
     setSearchId(e.target.value);
@@ -57,7 +67,6 @@ const UserManagement = () => {
       setFilteredUsers(filtered);
     }
   };
-
   const handleViewUser = (user) => {
     setSelectedUser(user);
     setOpen(true);
@@ -116,8 +125,26 @@ const UserManagement = () => {
                 </Table>
               </TableContainer>
             )}
-            <Dialog open={open} onClose={handleClose}>
-              <DialogTitle>User Details</DialogTitle>
+            <BootstrapDialog
+              onClose={handleClose}
+              aria-labelledby="customized-dialog-title"
+              open={open}
+            >
+              <DialogTitle sx={{ m: 0, p: 2 }} id="customized-dialog-title">
+                User Details
+              </DialogTitle>
+              <IconButton
+                aria-label="close"
+                onClick={handleClose}
+                sx={{
+                  position: "absolute",
+                  right: 8,
+                  top: 8,
+                  color: (theme) => theme.palette.grey[500],
+                }}
+              >
+                <X />
+              </IconButton>
               <DialogContent>
                 {selectedUser && (
                   <Box>
@@ -131,7 +158,7 @@ const UserManagement = () => {
               <DialogActions>
                 <Button onClick={handleClose}>Close</Button>
               </DialogActions>
-            </Dialog>
+            </BootstrapDialog>
           </Box>
         </Stack>
       </Stack>

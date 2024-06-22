@@ -4,7 +4,7 @@ const User = require("../models/user");
 const router = express.Router();
 
 // Get all users
-router.get("/", async (req, res) => {
+router.get("/users", async (req, res) => {
   try {
     const users = await User.find();
     res.json(users);
@@ -14,7 +14,7 @@ router.get("/", async (req, res) => {
 });
 
 // Get user by ID
-router.get("/:id", async (req, res) => {
+router.get("/users/:id", async (req, res) => {
   try {
     const user = await User.findOne({ id: req.params.id });
     if (user == null) {
