@@ -4,8 +4,9 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const notificationController = require("./controllers/notificationController");
 
-app.use(cors());
 const app = express();
+app.use(cors());
+
 app.use(bodyParser.json());
 
 // Connect to MongoDB
