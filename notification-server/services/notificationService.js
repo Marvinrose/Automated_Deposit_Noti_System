@@ -3,8 +3,8 @@ const nodemailer = require("nodemailer");
 const transporter = nodemailer.createTransport({
   service: "Gmail",
   auth: {
-    user: "rozzeymarvin32@gmail.com",
-    pass: "kpmyofgltpzvurpd",
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_SERVICE,
   },
 });
 
@@ -33,7 +33,7 @@ async function sendEmailNotification(email, amount) {
 
   await transporter.sendMail(mailOptions);
 }
-console.log(email, "email");
+// console.log(email, "email");
 // async function sendSMSNotification(phone, amount) {
 //   await twilioClient.messages.create({
 //     body: `Your deposit of $${amount} has failed due to insufficient funds.`,

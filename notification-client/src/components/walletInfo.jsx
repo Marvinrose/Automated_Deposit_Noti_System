@@ -80,7 +80,7 @@ const WalletInfo = () => {
                   User ID: {walletInfo.userId}
                 </Typography>
                 <Typography variant="body2">
-                  Balance: ${walletInfo.balance}
+                  Balance: {walletInfo.balance}
                 </Typography>
               </CardContent>
             </Card>

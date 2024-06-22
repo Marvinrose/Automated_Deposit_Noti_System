@@ -6,6 +6,7 @@ async function handleFailedDeposit(req, res) {
   const { userId, amount, notificationType } = req.body;
 
   try {
+    // Fetch user information
     const user = await userService.fetchUserInfo(userId);
 
     // Check if user exists and has an email property
@@ -13,19 +14,31 @@ async function handleFailedDeposit(req, res) {
       throw new Error("User email is not defined");
     }
 
+    // Check wallet balance
     const balance = await walletService.checkWalletBalance(userId);
 
-    if (balance < amount) {
+    // Convert amount to number (ensure it's parsed as a float or integer)
+    const depositAmount = parseFloat(amount);
+
+    // Debugging: Log balance and amount for verification
+    console.log(`Balance: ${balance}, Amount: ${depositAmount}`);
+
+    // Compare balance with the deposit amount
+    if (balance >= depositAmount) {
+      // Sufficient funds, no notification needed
+      res.status(200).send("Sufficient funds available, no notification sent");
+    } else {
+      // Insufficient funds, send notification
       await notificationService.sendNotification(
         user,
-        amount,
+        depositAmount,
         notificationType
       );
-      res.status(200).send("Notification sent successfully");
-    } else {
-      res.status(400).send("Sufficient funds available, no notification sent");
+      res.status(200).send("Notification sent successfully"); // Updated success message
     }
   } catch (error) {
+    // Handle errors
+    console.error("Error in handleFailedDeposit:", error);
     res.status(500).send(`Error: ${error.message}`);
   }
 }

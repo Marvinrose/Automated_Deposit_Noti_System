@@ -21,20 +21,30 @@ const NotificationForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    // Simple client-side validation
+    if (!userId || !amount) {
+      setError("User ID and Amount are required");
+      return;
+    }
+
     setLoading(true);
     setMessage("");
     setError("");
+
     try {
       const response = await axios.post(
         "http://localhost:3000/notify-failed-deposit",
         {
           userId,
-          amount,
+          amount: parseFloat(amount), // Ensure amount is sent as a number
           notificationType,
         }
       );
       setMessage(response.data);
+      //  setSnackbarOpen(true); // Assuming you have a Snackbar for success messages
     } catch (err) {
+      console.error("Error in handleSubmit:", err);
       setError(err.response?.data || "Error sending notification");
     } finally {
       setLoading(false);
