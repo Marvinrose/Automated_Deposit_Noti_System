@@ -13,7 +13,7 @@ const userRoutes = require("./routes/users");
 const walletRoutes = require("./routes/wallets");
 
 app.use("/api", userRoutes);
-app.use("/api/wallets", walletRoutes);
+app.use("/api", walletRoutes);
 
 // Connect to MongoDB
 mongoose.connect(process.env.DATABASE_URL, {

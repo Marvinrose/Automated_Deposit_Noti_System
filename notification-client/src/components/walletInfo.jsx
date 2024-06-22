@@ -1,6 +1,5 @@
-// components/WalletInfo.js
 import { useState } from "react";
-import { getWalletInfo } from "../api";
+import axios from "axios";
 import {
   Button,
   Container,
@@ -21,10 +20,12 @@ const WalletInfo = () => {
     setLoading(true);
     setError("");
     try {
-      const data = await getWalletInfo(userId);
-      setWalletInfo(data);
+      const response = await axios.get(
+        `http://localhost:3000/api/wallets/${userId}`
+      );
+      setWalletInfo(response.data);
     } catch (err) {
-      setError(err.message);
+      setError(err.response?.data || "Error fetching wallet information");
     } finally {
       setLoading(false);
     }
@@ -39,7 +40,6 @@ const WalletInfo = () => {
             <TextField
               required
               fullWidth
-              sx={{}}
               id="outlined-basic"
               label="User ID"
               variant="outlined"
@@ -47,7 +47,6 @@ const WalletInfo = () => {
               value={userId}
               onChange={(e) => setUserId(e.target.value)}
             />
-
             <Button
               onClick={handleFetchWallet}
               disabled={loading}
