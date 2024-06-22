@@ -22,7 +22,7 @@ const dummyUsers = [
   },
   {
     name: "Alice Johnson",
-    email: "alice@example.com",
+    email: "rozzeymarvin32@gmail.com",
     phone: "3456789012",
     id: "3",
   },
@@ -35,7 +35,7 @@ const dummyUsers = [
   },
   {
     name: "Diana Evans",
-    email: "diana@example.com",
+    email: "rozzeymarvin32@gmail.com",
     phone: "6789012345",
     id: "6",
   },

@@ -1,12 +1,11 @@
-const axios = require("axios");
-const { userServiceUrl } = require("../config/config");
+const User = require("../models/user");
 
 async function fetchUserInfo(userId) {
   try {
-    const response = await axios.get(`${userServiceUrl}/users/${userId}`);
-    return response.data;
+    const user = await User.findOne({ id: userId });
+    return user; // Ensure `user` object has `email` property
   } catch (error) {
-    throw new Error("Error fetching user information");
+    throw new Error(`Error fetching user information: ${error.message}`);
   }
 }
 

@@ -5,7 +5,7 @@ const Login = () => {
   return (
     <>
       <Stack spacing={2} sx={{ mb: 5, position: "relative" }}>
-        <Typography variant="h4">Log In To Tawk</Typography>
+        <Typography variant="h4">Log In To Payene</Typography>
         <Stack direction="row" spacing={0.5}>
           <Typography variant="body2">New User?</Typography>
           <Link href="/register"  variant="subtitle2">

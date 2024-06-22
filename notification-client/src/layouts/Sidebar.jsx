@@ -3,6 +3,7 @@ import Nav_Buttons from "../data";
 import { Gear } from "phosphor-react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Logo from "../images/fin-tech-logo.png";
 
 const Sidebar = () => {
   const [selected, setSelected] = useState(0);
@@ -49,7 +50,7 @@ const Sidebar = () => {
               borderRadius: 1.5,
             }}
           >
-            {/* <img alt="logo" src={Logo}></img> */}
+            <img width={64} alt="logo" src={Logo}></img>
           </Box>
           <Stack
             spacing={3}
