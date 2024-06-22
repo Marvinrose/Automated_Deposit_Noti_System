@@ -1,10 +1,8 @@
-import { Button, Link, Stack, TextField, Typography } from "@mui/material";
+import { Button, Link, Stack, TextField } from "@mui/material";
 import { useState } from "react";
 
-const RegisterForm = () => {
+const LoginForm = () => {
   const [formData, setFormData] = useState({
-    firstname: "",
-    lastname: "",
     email: "",
     password: "",
   });
@@ -28,31 +26,6 @@ const RegisterForm = () => {
       <Stack>
         <form onSubmit={handleSubmit}>
           <Stack direction={"column"} spacing={3}>
-            <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
-              <TextField
-                required
-                name={"firstname"}
-                type="text"
-                fullWidth
-                id="outlined-basic"
-                label="First Name"
-                variant="outlined"
-                value={formData.firstname}
-                onChange={handleChange}
-              />
-              <TextField
-                required
-                name={"lastname"}
-                type="text"
-                fullWidth
-                id="outlined-basic"
-                label="Last Name"
-                variant="outlined"
-                value={formData.lastname}
-                onChange={handleChange}
-              />
-            </Stack>
-
             <TextField
               required
               name={"email"}
@@ -77,6 +50,11 @@ const RegisterForm = () => {
               value={formData.password}
               onChange={handleChange}
             />
+            <Stack alignItems={"flex-end"} sx={{ my: 2 }}>
+              <Link variant="body2" color={"inherit"} underline="always">
+                Forgot Password?
+              </Link>
+            </Stack>
 
             <Button
               fullWidth
@@ -93,33 +71,13 @@ const RegisterForm = () => {
                 },
               }}
             >
-              Create Account
+              Login
             </Button>
           </Stack>
-          <Typography
-            component={"div"}
-            sx={{
-              color: "text.secondary",
-              mt: 3,
-              typography: "caption",
-              textAlign: "center",
-            }}
-          >
-            {"By signing up, I agree to "}
-
-            <Link underline="always" color={"text.primary"}>
-              Terms of service
-            </Link>
-            {" and "}
-
-            <Link underline="always" color={"text.primary"}>
-              Privacy Policy
-            </Link>
-          </Typography>
         </form>
       </Stack>
     </>
   );
 };
 
-export default RegisterForm;
+export default LoginForm;

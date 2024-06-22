@@ -4,7 +4,7 @@ import GeneralApp from "../pages/Dashboard/GeneralApp";
 
 const Dashboard = () => {
   return (
-    <Stack direction="row">
+    <Stack direction="row" sx={{ height: "100vh" }}>
       <Sidebar />
       <GeneralApp />
     </Stack>

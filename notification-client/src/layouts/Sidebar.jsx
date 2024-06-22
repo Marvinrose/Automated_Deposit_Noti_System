@@ -123,13 +123,7 @@ const Sidebar = () => {
           </Stack>
         </Stack>
 
-        <Stack spacing={4}>
-          {/* <AntSwitch
-            onChange={() => {
-              onToggleMode();
-            }}
-            defaultChecked
-          /> */}
+        <Stack spacing={1}>
           <Avatar
             sx={{ cursor: "pointer" }}
             id="basic-button"

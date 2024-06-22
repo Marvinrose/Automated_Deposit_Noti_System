@@ -1,6 +1,7 @@
 import { Container, Stack } from "@mui/material";
 
 import { Outlet } from "react-router-dom";
+import AuthSocial from "../../components/AuthSocial";
 
 const AuthLayout = () => {
   return (
@@ -16,6 +17,7 @@ const AuthLayout = () => {
           </Stack>
         </Stack>
         <Outlet />
+        <AuthSocial />
       </Container>
     </>
   );
