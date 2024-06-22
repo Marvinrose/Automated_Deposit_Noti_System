@@ -28,7 +28,9 @@ async function sendEmailNotification(email, amount) {
     from: process.env.EMAIL_USER,
     to: email,
     subject: "Failed Deposit Notification",
-    text: `Your deposit of $${amount} has failed due to insufficient funds.`,
+    text: `Your deposit of $${amount} has failed due to insufficient funds.
+
+    For further assistance, please visit our help page: https://www.help.com`,
   };
 
   await transporter.sendMail(mailOptions);
