@@ -18,6 +18,7 @@ const AuthSocial = () => {
       </Divider>
       <Stack direction={"column"} spacing={2}>
         <Button
+          startIcon={<GoogleLogo weight="bold" />}
           fullWidth
           color="inherit"
           variant="contained"
