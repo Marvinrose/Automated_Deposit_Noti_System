@@ -11,7 +11,7 @@ const GeneralApp = () => {
           padding: 2,
         }}
       >
-        <Stack direction={"row"} sx={{ height: "100vh" }}>
+        <Stack direction={"row"}>
           {" "}
           <Outlet />
         </Stack>
