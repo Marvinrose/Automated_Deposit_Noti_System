@@ -14,6 +14,8 @@ const GeneralApp = () => {
         <Stack direction={"row"}>
           {" "}
           <Outlet />
+
+          {/* Add empty state here */}
         </Stack>
       </Box>
     </>

@@ -1,9 +1,9 @@
-import { Button, Divider, IconButton, Stack } from "@mui/material";
+import { Box, Button, Divider, IconButton, Stack } from "@mui/material";
 import { GithubLogo, GoogleLogo, TwitterLogo } from "phosphor-react";
 
 const AuthSocial = () => {
   return (
-    <div>
+    <Box mb={5}>
       <Divider
         sx={{
           my: 2.5,
@@ -21,17 +21,9 @@ const AuthSocial = () => {
           startIcon={<GoogleLogo weight="bold" />}
           fullWidth
           color="inherit"
-          variant="contained"
+          variant="outlined"
           type="submit"
           size="large"
-          sx={{
-            bgcolor: "#000",
-            color: "#fff",
-            "&:hover": {
-              bgcolor: "#000",
-              color: "#fff",
-            },
-          }}
         >
           Sign In with Google
         </Button>
@@ -47,7 +39,7 @@ const AuthSocial = () => {
           </IconButton>
         </Stack>
       </Stack>
-    </div>
+    </Box>
   );
 };
 
