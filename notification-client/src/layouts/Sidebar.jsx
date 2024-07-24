@@ -4,6 +4,7 @@ import { Gear } from "phosphor-react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Logo from "../images/fin-tech-logo.png";
+import { faker } from "@faker-js/faker";
 
 const Sidebar = () => {
   const [selected, setSelected] = useState(0);
@@ -27,7 +28,6 @@ const Sidebar = () => {
 
   return (
     <Box
-    
       p={2}
       sx={{
         boxShadow: "0px 0px 2px rgba(0, 0, 0, 0.25)",
@@ -129,11 +129,7 @@ const Sidebar = () => {
           <Avatar
             sx={{ cursor: "pointer" }}
             id="basic-button"
-            // aria-controls={open ? "basic-menu" : undefined}
-            // aria-haspopup="true"
-            // aria-expanded={open ? "true" : undefined}
-            // onClick={handleClick}
-            // src={faker.image.avatar()}
+            src={faker.image.avatar()}
           />
         </Stack>
       </Stack>
