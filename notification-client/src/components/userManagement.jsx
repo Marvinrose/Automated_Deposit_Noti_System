@@ -21,6 +21,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
+
 import { Eye, X } from "phosphor-react";
 import { styled } from "@mui/material/styles";
 
@@ -129,6 +130,7 @@ const UserManagement = () => {
               onClose={handleClose}
               aria-labelledby="customized-dialog-title"
               open={open}
+              fullWidth={true}
             >
               <DialogTitle sx={{ m: 0, p: 2 }} id="customized-dialog-title">
                 User Details
